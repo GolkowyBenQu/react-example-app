@@ -1,5 +1,6 @@
 import React from 'react'
-import Button from './Button.jsx'
+// import Button from './Button.jsx'
+import { Button, Nav, NavItem } from 'react-bootstrap'
 import Table from './Table.jsx'
 
 class App extends React.Component {
@@ -24,12 +25,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <nav>
-          <Button text="abc1" />
+        <Nav>
+          <Button text="abc1" >test</Button>
           <Button text="abc2" />
           <Button text="abc3" />
           <Button text="abc4" />
-        </nav>
+          <NavItem href="http://google.pl">abc</NavItem>
+        </Nav>
         <Table data={this.state.staticData} />
       </div>
     )
