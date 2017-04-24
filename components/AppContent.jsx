@@ -1,6 +1,7 @@
 import React from 'react'
-import Table from './Table.jsx'
+import AppTable from './AppTable.jsx'
 import AppJumbotron from './AppJumbotron.jsx'
+import { PageHeader } from 'react-bootstrap'
 
 class AppContent extends React.Component {
 
@@ -25,8 +26,8 @@ class AppContent extends React.Component {
     return (
       <div className="container">
         <AppJumbotron />
-        <div>content</div>
-        <Table data={this.state.staticData} />
+        <PageHeader>Example page header <small>Subtext for header</small></PageHeader>
+        <AppTable data={this.state.staticData} />
       </div>
     )
   }

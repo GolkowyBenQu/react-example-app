@@ -1,14 +1,23 @@
 import React from 'react'
 import Radium from 'radium'
+import { Table } from 'react-bootstrap'
 
-class Table extends React.Component {
+class AppTable extends React.Component {
   render() {
     return (
-      <table>
+      <Table hover responsive>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody>
         {
           this.props.data.map((person, i) => <RadiumTableRow key = {i} data = {person} />)
         }
-      </table>
+        </tbody>
+      </Table>
     )
   }
 }
@@ -25,4 +34,4 @@ class TableRow extends React.Component {
 }
 const RadiumTableRow = Radium(TableRow)
 
-export default Table
+export default AppTable
