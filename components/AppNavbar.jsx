@@ -1,34 +1,26 @@
 import React from 'react'
-import { Navbar, NavDropdown, Nav, NavItem, MenuItem } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 class AppNavbar extends React.Component {
   render() {
     return (
-      <Navbar inverse collapseOnSelect>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">React-Bootstrap</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-            <NavItem eventKey={2} href="#">Link</NavItem>
-            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
-          </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={1} href="#">Link Right</NavItem>
-            <NavItem eventKey={2} href="#">Link Right</NavItem>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <nav className="navbar navbar-default navbar-inverse collapseOnSelect">
+        <div className="navbar-header">
+          <Link className="navbar-brand" to="/">Brand</Link>
+        </div>
+        <div className="collapse navbar-collapse">
+          <ul className="nav navbar-nav">
+            <li>
+              <Link className="" to="/about">About</Link>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav navbar-right">
+            <li>
+              <Link className="" to="/about">About</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
     )
   }
 }
