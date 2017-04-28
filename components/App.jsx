@@ -32,33 +32,54 @@ class App extends React.Component {
     const password = encodeURIComponent(this.state.user.password)
     const formData = `email=${email}&password=${password}`
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('post', 'http://127.0.0.1:8000/');
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000');
-    xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
-      if (xhr.status === 200) {
-        // success
+    const config = {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      // body: formData
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    }
 
-        // change the component-container state
-        this.setState({
-          errors: {}
-        });
+    const promise = fetch('http://127.0.0.1:8000/', config)
 
-        console.log('The form is valid');
-      } else {
-        // failure
+      promise
+      .catch( error => console.log(error) )
+      .then( result => console.log(result) )
 
-        const errors = xhr.response.errors ? xhr.response.errors : {};
-        errors.summary = xhr.response.message;
-
-        this.setState({
-          errors
-        });
-      }
-    });
-    xhr.send(formData);
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('post', 'http://127.0.0.1:8000/');
+    // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000');
+    // xhr.responseType = 'json';
+    // xhr.addEventListener('load', () => {
+    //   if (xhr.status === 200) {
+    //     // success
+    //
+    //     // change the component-container state
+    //     this.setState({
+    //       errors: {}
+    //     });
+    //
+    //     console.log('The form is valid');
+    //   } else {
+    //     // failure
+    //
+    //     const errors = xhr.response.errors ? xhr.response.errors : {};
+    //     errors.summary = xhr.response.message;
+    //
+    //     this.setState({
+    //       errors
+    //     });
+    //   }
+    // });
+    // xhr.send(formData);
   }
 
   onChange (event) {
