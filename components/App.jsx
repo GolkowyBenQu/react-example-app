@@ -1,6 +1,12 @@
 import React from 'react'
+import { connect } from 'redux'
+import { addTodo } from '../actions/actions'
+
 import AppNavbar from './AppNavbar.jsx'
 import SignInForm from './SignInForm.jsx'
+import AddTodo from './AddTodo.jsx'
+import TodoList from './TodoList.jsx'
+
 // import AppContent from './AppContent.jsx'
 // import AppFooter from './AppFooter.jsx'
 
@@ -93,9 +99,15 @@ class App extends React.Component {
   }
 
   render() {
+    const { dispatch, visibleTodos } = this.props
+
     return (
       <div>
         <AppNavbar />
+        <AddTodo
+          onAddClick = { text => dispatch(addTodo(text)) }
+        />
+        <TodoList todos = {visibleTodos} />
         <SignInForm onSubmit={this.onSubmit} onChange={this.onChange} />
         {/*<AppContent />*/}
         {/*<AppFooter />*/}
