@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'redux'
+import { connect } from 'react-redux'
 import { addTodo } from '../actions/actions'
 
 import AppNavbar from './AppNavbar.jsx'
@@ -116,4 +116,10 @@ class App extends React.Component {
   }
 }
 
-export default App
+function select(state) {
+  return {
+    visibleTodos: state.todos
+  }
+}
+
+export default connect(select)(App)

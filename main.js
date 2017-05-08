@@ -7,21 +7,21 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 import App from './components/App.jsx'
 import About from './components/About.jsx'
-import todos from './reducers/reducers'
+import todoApp from './reducers/reducers'
 
-const todoApp = combineReducers({
-  todos,
-  routing: routerReducer
-})
+// const todoApp = combineReducers({
+//   todos,
+//   routing: routerReducer
+// })
 
 let store = createStore(todoApp)
 console.log(store)
 
-const history = syncHistoryWithStore(browserHistory, store)
+// const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render((
   <Provider store = {store}>
-    <Router history = {history}>
+    <Router history = {browserHistory}>
       <Route path = "/" component = {App} />
         {/*<IndexRoute component = {App} />*/}
         {/*<Route path = "home" component = {Home} />*/}

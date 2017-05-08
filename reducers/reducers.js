@@ -27,8 +27,8 @@ function todos(state = [], action) {
   }
 }
 
-// const todoApp = combineReducers({
-//   todos
-// })
+const todoApp = combineReducers({
+  todos
+})
 
-export default todos
+export default todoApp
