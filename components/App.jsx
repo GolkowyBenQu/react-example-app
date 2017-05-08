@@ -1,11 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { addTodo } from '../actions/actions'
 
 import AppNavbar from './AppNavbar.jsx'
 import SignInForm from './SignInForm.jsx'
-import AddTodo from './AddTodo.jsx'
-import TodoList from './TodoList.jsx'
+import TodoApp from './TodoApp.jsx'
 
 // import AppContent from './AppContent.jsx'
 // import AppFooter from './AppFooter.jsx'
@@ -58,34 +55,6 @@ class App extends React.Component {
       promise
       .catch( error => console.log(error) )
       .then( result => console.log(result) )
-
-    // const xhr = new XMLHttpRequest();
-    // xhr.open('post', 'http://127.0.0.1:8000/');
-    // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    // xhr.setRequestHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8000');
-    // xhr.responseType = 'json';
-    // xhr.addEventListener('load', () => {
-    //   if (xhr.status === 200) {
-    //     // success
-    //
-    //     // change the component-container state
-    //     this.setState({
-    //       errors: {}
-    //     });
-    //
-    //     console.log('The form is valid');
-    //   } else {
-    //     // failure
-    //
-    //     const errors = xhr.response.errors ? xhr.response.errors : {};
-    //     errors.summary = xhr.response.message;
-    //
-    //     this.setState({
-    //       errors
-    //     });
-    //   }
-    // });
-    // xhr.send(formData);
   }
 
   onChange (event) {
@@ -99,15 +68,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { dispatch, visibleTodos } = this.props
-
     return (
       <div>
         <AppNavbar />
-        <AddTodo
-          onAddClick = { text => dispatch(addTodo(text)) }
-        />
-        <TodoList todos = {visibleTodos} />
+        <TodoApp />
         <SignInForm onSubmit={this.onSubmit} onChange={this.onChange} />
         {/*<AppContent />*/}
         {/*<AppFooter />*/}
@@ -116,10 +80,4 @@ class App extends React.Component {
   }
 }
 
-function select(state) {
-  return {
-    visibleTodos: state.todos
-  }
-}
-
-export default connect(select)(App)
+export default App
