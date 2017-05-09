@@ -15,7 +15,7 @@ import todoApp from './reducers/reducers'
 // })
 
 let store = createStore(todoApp)
-console.log(store)
+// console.log(store)
 
 // const history = syncHistoryWithStore(browserHistory, store)
 
