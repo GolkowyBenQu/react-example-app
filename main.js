@@ -1,21 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 import App from './components/App.jsx'
 import About from './components/About.jsx'
-import todoApp from './reducers/reducers'
+import todos from './reducers/reducers'
 
-// const todoApp = combineReducers({
-//   todos,
-//   routing: routerReducer
-// })
+const todoApp = combineReducers({
+  todos,
+})
 
-let store = createStore(todoApp)
-// console.log(store)
+const store = createStore(todoApp)
 
 // const history = syncHistoryWithStore(browserHistory, store)
 
