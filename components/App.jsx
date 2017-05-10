@@ -1,11 +1,8 @@
 import React from 'react'
-import Immutable from 'immutable'
 
 import AppNavbar from './AppNavbar.jsx'
 import SignInForm from './SignInForm.jsx'
 import TodoApp from './TodoApp.jsx'
-
-import Product from '../stores/Product.js'
 
 // import AppContent from './AppContent.jsx'
 // import AppFooter from './AppFooter.jsx'
@@ -13,21 +10,6 @@ import Product from '../stores/Product.js'
 // login
 // https://vladimirponomarev.com/blog/authentication-in-react-apps-creating-components
 // https://vladimirponomarev.com/blog/authentication-in-react-apps-jwt
-
-const myProduct = new Product({
-  id: 1,
-  name: 'Phone'
-})
-const myProduct2 = myProduct.set('id', 2)
-const myProduct3 = myProduct2.set('id', 3)
-
-const products = Immutable.Map({
-  1: myProduct,
-  2: myProduct2,
-  3: myProduct3
-})
-
-const prd = products.get("1")
 
 class App extends React.Component {
 

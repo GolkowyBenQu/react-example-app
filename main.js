@@ -14,16 +14,11 @@ const todoApp = combineReducers({
 
 const store = createStore(todoApp)
 
-// const history = syncHistoryWithStore(browserHistory, store)
-
 ReactDOM.render((
   <Provider store = {store}>
     <Router history = {browserHistory}>
       <Route path = "/" component = {App} />
-        {/*<IndexRoute component = {App} />*/}
-        {/*<Route path = "home" component = {Home} />*/}
       <Route path = "/about" component = {About} />
-        {/*<Route path = "contact" component = {Contact} />*/}
     </Router>
   </Provider>
 ), document.getElementById('app'))
