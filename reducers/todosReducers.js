@@ -1,6 +1,6 @@
 import Immutable from 'immutable'
 
-import {ADD_TODO, TOGGLE_TODO} from '../actions/actions'
+import {ADD_TODO, TOGGLE_TODO} from '../actions/todosActions'
 
 const init = Immutable.List([])
 

@@ -6,13 +6,15 @@ import { Provider } from 'react-redux'
 
 import App from './components/App.jsx'
 import About from './components/About.jsx'
-import todos from './reducers/reducers'
+import todosReducers from './reducers/todosReducers'
+import userReducers from './reducers/userRedicers'
 
-const todoApp = combineReducers({
-  todos,
+const reducers = combineReducers({
+  todosReducers,
+  userReducers
 })
 
-const store = createStore(todoApp)
+const store = createStore(reducers, {})
 
 ReactDOM.render((
   <Provider store = {store}>

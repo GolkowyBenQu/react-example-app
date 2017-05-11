@@ -1,20 +1,18 @@
-export const ADD_TODO = 'ADD_TODO'
-export const TOGGLE_TODO = 'TOGGLE_TODO'
+import { bindActionCreators } from 'redux'
 
-let nextTodoId = 0
+import * as alertActions from './alertActions'
+import * as todosActions from './todosActions'
 
-export function addTodo(text) {
+export function mapStateToProps (state) {
   return {
-    type: ADD_TODO,
-    id: nextTodoId++,
-    isDone: false,
-    text
+    ...state
   }
 }
 
-export function toggleTodo(id) {
+export function mapDispatchToProps (dispatch) {
   return {
-    type: TOGGLE_TODO,
-    id
+    onAddClick: text => dispatch(todosActions.addTodo(text)),
+    onToggle: id => dispatch(todosActions.toggleTodo(id)),
+    onCLickEvent: () => dispatch(alertActions.alertAction())
   }
 }
