@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect } from 'react-redux'
 
+import AppNavbar from './AppNavbar.jsx'
 import { mapStateToProps, mapDispatchToProps } from '../actions/actions.js'
 
 class Repositories extends React.Component {
@@ -15,6 +16,8 @@ class Repositories extends React.Component {
 
     return (
       <div>
+        <AppNavbar />
+        <h1>Repositories</h1>
         {
           dataRequestReducers.repositories.map(
             (item, index) => {

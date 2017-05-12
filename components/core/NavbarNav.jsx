@@ -16,6 +16,15 @@ class NavbarNav extends React.Component {
         <li>
           <Link className="" to="/about">About</Link>
         </li>
+        <li>
+          <Link className="" to="/todo_app">Todo App</Link>
+        </li>
+        <li>
+          <Link className="" to="/repositories">Repositories</Link>
+        </li>
+        <li>
+          <Link className="" to="/login">Login</Link>
+        </li>
       </ul>
     )
   }
