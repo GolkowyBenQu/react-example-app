@@ -3,6 +3,7 @@ import React from 'react'
 import AppNavbar from './AppNavbar.jsx'
 import SignInForm from './SignInForm.jsx'
 import TodoApp from './TodoApp.jsx'
+import Repositories from './Repositories'
 
 // import AppContent from './AppContent.jsx'
 // import AppFooter from './AppFooter.jsx'
@@ -72,6 +73,7 @@ class App extends React.Component {
       <div>
         <AppNavbar />
         <TodoApp />
+        <Repositories/>
         <SignInForm onSubmit={this.onSubmit} onChange={this.onChange}/>
         {/*<AppContent />*/}
         {/*<AppFooter />*/}
